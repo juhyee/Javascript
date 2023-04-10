@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forEach & sort products list</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+
+    <!--  -->
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+    <form class="container my-5 form-group ">
+      <p>상품선택</p>
+      <select class="form-select mt-2 form-select01">
+        <option>모자</option>
+        <option>셔츠</option>
+        <option>바지</option>
+      </select>
+
+      <select class="form-select form-select02 mt-2 hide">
+      </select>
+
+    </form>
+    <script>
+      var pants = [28, 29, 30, 31]
+      var shirt = [95, 100, 105, 110]
+
+      document.querySelector('.form-select01').addEventListener('input', function () {
+        let formSelect = document.querySelector('.form-select01')
+        document.querySelector('.form-select02').innerHTML = ""
+        if (formSelect.value == "셔츠") {
+          shirt.forEach((a, i) => {
+            let options = document.createElement('option')
+            document.querySelector('.form-select02').appendChild(options)
+            document.querySelectorAll('.form-select02 option')[i].innerText = shirt[i]
+          })
+          document.querySelector('.form-select02').classList.remove('hide')
+        } else if (formSelect.value == '바지') {
+          pants.forEach(function (a, i) {
+            let options = document.createElement('option')
+            document.querySelector('.form-select02').appendChild(options)
+            document.querySelectorAll('.form-select02 option')[i].innerText = pants[i]
+          })
+          document.querySelector('.form-select02').classList.remove('hide')
+        } else {
+          document.querySelector('.form-select02').classList.add('hide')
+        }
+      })
+    </script>
+    <!--  -->
+
+
+
+    <div class="row">
+      <!-- 상품 뿌려지는 영역 -->
+    </div>
+    <div class="btn btn01 btn-danger">가격정렬</div>
+    <div class="btn btn02 btn-danger">이름정렬</div>
+    <div class="btn btn03 btn-danger">이하정렬</div>
+  </div>
+
+  <script>
+    var products = [
+      { id: 0, price: 70000, title: 'Blossom Dress' },
+      { id: 1, price: 50000, title: 'Springfield Shirt' },
+      { id: 2, price: 60000, title: 'Black Monastery' }
+    ];
+
+    function template() {
+      document.querySelector('.row').innerHTML = ''
+      products.forEach((a, i) => {
+        let template =
+          `
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${a.title}</h5>
+            <p>가격 : ${a.price}</p>
+        `;
+        let divTag = document.createElement('div')
+        divTag.classList.add('col-sm-4')
+        divTag.innerHTML = template
+        document.querySelector('.row').appendChild(divTag)
+      })
+    }
+    template()
+
+    document.querySelector('.btn01').addEventListener('click', function () {
+      products.sort((a, b) => {
+        return a.price - b.price
+      })
+      template();
+    })
+
+    document.querySelector('.btn02').addEventListener('click', function () {
+      products.sort((a, b) => {
+        return a.title < b.title ? 1  : - 1
+      })
+      template()
+    })
+
+    document.querySelector('.btn03').addEventListener('click', function () {
+      let newProducts = products.filter((a) => {
+        return a.price <= 60000
+      })
+
+      document.querySelector('.row').innerHTML = ''
+      newProducts.forEach((a, i) => {
+        let template =
+          `
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${a.title}</h5>
+            <p>가격 : ${a.price}</p>
+          `;
+        let divTag = document.createElement('div')
+        divTag.classList.add('col-sm-4')
+        divTag.innerHTML = template
+        document.querySelector('.row').appendChild(divTag)
+      })
+    })
+
+  </script>
+
+  <script>
+    $.get('https://codingapple1.github.io/price.json')
+      .done(function (data) {
+        console.log(data.price)
+      }).fail(function () {
+        console.log(실패함)
+      })
+  </script>
+</body>
+
+</html>
