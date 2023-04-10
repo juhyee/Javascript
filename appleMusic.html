@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>애플뮤직 페이지 만들기</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <style>
+    .card-background {
+      height: 3000px;
+      margin-top: 200px;
+      margin-bottom: 1600px;
+    }
+
+    .card-box {
+      position: sticky;
+      top: 0;
+      margin-top: 0;
+      transition: all 0.2s
+    }
+
+    .card-box img {
+      display: block;
+      margin: auto;
+      max-width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card-background">
+    <div class="card-box">
+      <img src="./img/card1.png" alt="">
+    </div>
+    <div class="card-box">
+      <img src="./img/card2.png" alt="">
+    </div>
+    <div class="card-box">
+      <img src="./img/card3.png" alt="">
+    </div>
+  </div>
+
+
+  <script>
+    window.addEventListener('scroll', function () {
+      let height = document.documentElement.scrollTop
+      let windowH = document.querySelector('body').clientHeight;
+      console.log(height)
+      let level = (-1 / 500) * height + 115 / 50
+      var size = (-1 / 5000) * height + 565 / 500;
+      let dom = document.querySelectorAll('.card-box')
+
+      if(height >= document.querySelectorAll('.card-box')[0].offsetTop ){
+          document.querySelectorAll('.card-box')[0].style.scale = size
+          document.querySelectorAll('.card-box')[0].style.opacity = level
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

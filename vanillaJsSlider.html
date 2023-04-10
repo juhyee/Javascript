@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vanilla js slider</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    /* slide */
+    .slide-wrap {
+      overflow: hidden;
+      width: 500px;
+    }
+
+    .slide-container {
+      transition: all 1s;
+      transform: translateX(0);
+    }
+
+    .slide-box {
+      float: left;
+      width: 500px;
+    }
+
+    .slide-box img {
+      width: 100%;
+    }
+
+    .slide-pagination {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slide-wrap">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="./img/car1.png" alt="">
+      </div>
+      <div class="slide-box">
+        <img src="./img/car2.png" alt="">
+      </div>
+      <div class="slide-box">
+        <img src="./img/car3.png" alt="">
+      </div>
+    </div>
+    <button class="slide-btn slide-prev">이전</button>
+    <div class="slide-pagination"></div>
+    <button class="slide-btn slide-next">다음</button>
+  </div>
+</body>
+
+<script>
+  let domBox = document.querySelectorAll('.slide-box').length
+  let domBoxWidth = document.querySelector('.slide-box').offsetWidth;
+  let width = domBox * domBoxWidth;
+  let slideContainer = document.querySelector('.slide-container').style.width = width + 'px'
+
+  // 슬라이드 초기값
+  document.querySelector('.slide-container').style.transform = 'translateX(0)'
+  document.querySelectorAll('.slide-box')[0].classList.add('active')
+
+  // 슬라이드 개수에 따라 pagination 생성
+  for (let i = 0; i < domBox; i++) {
+    let pageBtn = document.createElement('button')
+    pageBtn.classList.add('slide-page')
+    pageBtn.innerText = i + 1
+    document.querySelector('.slide-pagination').appendChild(pageBtn)
+  }
+
+  // 슬라이드 pagination 클릭 시 슬라이드 이동
+  var slideIdx = 1;
+  for (let i = 0; i < domBox; i++) {
+    document.querySelectorAll('.slide-page')[i].addEventListener('click', function () {
+      let position = i * domBoxWidth;
+      document.querySelector('.slide-container').style.transform = 'translateX( -' + position + 'px)'
+      document.querySelectorAll('.slide-box').forEach(e => e.classList.remove('active'))
+      document.querySelectorAll('.slide-box')[i].classList.add('active')
+      slideIdx = i + 1
+    })
+  }
+
+  // 다음 버튼 클릭 시 슬라이드 이동
+  document.querySelector('.slide-next').addEventListener('click', function () {
+    if (slideIdx > domBox - 1) {
+      document.querySelector('.slide-container').style.transform = 'translateX( -' + (domBox - 1) * domBoxWidth + 'px)'
+      slideIdx = domBox
+    } else {
+      document.querySelector('.slide-container').style.transform = 'translateX( -' + slideIdx * domBoxWidth + 'px)'
+      slideIdx++
+    }
+  })
+
+  // 이전 버튼 클릭 시 슬라이드 이동
+  document.querySelector('.slide-prev').addEventListener('click', function () {
+    if (slideIdx <= 0) {
+      document.querySelector('.slide-container').style.transform = 'translateX( 0 )'
+    } else {
+      --slideIdx
+      document.querySelector('.slide-container').style.transform = 'translateX( -' + (slideIdx - 1) * domBoxWidth + 'px)'
+    }
+  })
+
+</script>
+</body>
+
+</html>
