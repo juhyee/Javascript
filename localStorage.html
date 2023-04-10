@@ -50,7 +50,6 @@
     for (let i = 0; i < divCount.length; i++) {
       let childItem = divCount[i].children[3]
       childItem.addEventListener('click', function(e){
-
         let name = e.target.previousElementSibling.previousElementSibling.innerText
         if(localStorage.getItem('name') != null){
           let outItem = JSON.parse(localStorage.name)
@@ -62,7 +61,6 @@
 
         localStorage.getItem
       })
-
     }
   </script>
 
