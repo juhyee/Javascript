@@ -62,41 +62,43 @@
     }
 
     .basket-wrap {
-        width: 100%;
-        min-height: 600px;
-        margin-top: 30px;
-        padding: 30px;
-        background-color: #aaa;
-      }
+      width: 100%;
+      min-height: 600px;
+      margin-top: 30px;
+      padding: 30px;
+      background-color: #aaa;
+    }
 
-      .basket {
-        display:flex;
-        flex-wrap: wrap;
-        width: 100%;
-        min-height: 460px;
-        margin-top: 30px;
-        background-color: #000;
-      }
-      .modal1, .modal2 {
-        display:flex;
-        align-items: center;
-        justify-content:center;
-        position: fixed;
-        margin: auto;
-        padding: 30px;
-        top: 0px;
-        left:0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-      }
+    .basket {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      min-height: 460px;
+      margin-top: 30px;
+      background-color: #000;
+    }
 
-      .white-bg {
-          background: white;
-          width:400px;
-          padding: 30px;
-          border-radius: 5px;
-      }
+    .modal1,
+    .modal2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      margin: auto;
+      padding: 30px;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .white-bg {
+      background: white;
+      width: 400px;
+      padding: 30px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -122,7 +124,6 @@
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
             aria-expanded="false">
           </a>
-
         </div>
       </div>
     </div>
@@ -146,7 +147,7 @@
     </div>
 
 
-    <div class="modal1" style="display: none;">
+    <div class="modal modal1" style="display: none;">
       <div class="white-bg">
         <h4>성함</h4>
         <input type="text" id="name">
@@ -159,22 +160,19 @@
       </div>
     </div>
 
-    <div class="modal2" style="display: none;">
+    <div class="modal modal2" style="display: none;">
       <div class="white-bg">
         <h4>영수증</h4>
         <p class="date"></p>
-        <p class="pr_title"></p>
-        <p class="pr_brand"></p>
-        <p class="pr_price"></p>
-        <p class="pr_count"></p>
-        <p class="pr_total"></p>
-        <div>
-          <button class="close">닫기</button>
-        </div>
+        <p>주문자명 <span class="name"></span></p>
+        <div class="total_info"></div>
+        <p>결제금액 : <span class="total_price"></span></p>
+        <button class="close">닫기</button>
       </div>
     </div>
+  </main>
 
-  <script src="./js/shoppingMall.js"></script>
+    <script src="./js/shoppingMall.js"></script>
 </body>
 
 </html>
