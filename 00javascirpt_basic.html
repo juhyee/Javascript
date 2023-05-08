@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascirpt basic</title>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      이름 : <input type="text" id="name">
+    </div>
+    <div>
+      지역 :
+      <select id="city" onchange="changeCity()">
+        <!-- <option value="02" selected>서울</option>
+        <option value="064">제주</option> -->
+      </select>
+    </div>
+    <div>
+      동네 :
+      <select id="region_02">
+        <option value="" selected>강남</option>
+        <option value="">서초</option>
+      </select>
+      <select id="region_064" style="display: none;">
+        <option value="">제주시</option>
+        <option value="">서귀포</option>
+      </select>
+    </div>
+    <button type="button" onclick="regist()">등록</button>
+  </div>
+  <div>
+    test : <input type="text" id="test">
+  </div>
+  <script>
+    function regist(){
+      // alert(document.getElementById('name').value);
+      // alert(document.getElementById('city').value);
+
+      let obj = {};
+
+      obj.name = document.getElementById('name').value;
+      obj.city = document.getElementById('city').value;
+
+      printConsole(obj);
+      // printConsole2(name, city);
+    }
+
+    function printConsole(data){
+      console.log(data)
+    }
+
+    // function printConsole2(name, city){
+    //   console.log(name, city)
+    // }
+
+    function loadCity(){
+      let city = [
+        {code:"02", name:"서울"},
+        {code:"064", name:"제주"}
+      ];
+
+      // document.querySelector('#city').insertAdjacentHTML('afterbegin', `
+      // <option value="02" selected>서울</option>
+      //   <option value="064">제주</option>
+      // `)
+
+      for(let i = city.length - 1; i >= 0; i--){
+        document.querySelector('#city').insertAdjacentHTML('afterbegin', `
+        <option value="${city[i].code}">${city[i].name}</option>
+        `)
+      }
+
+      document.querySelectorAll('option')[0].selected = true;
+    }
+    loadCity()
+
+    function changeCity(){
+      let city = document.getElementById("city").value;
+      document.getElementById('region_02').style.display = 'none';
+      document.getElementById('region_064').style.display = 'none';
+      document.getElementById('region_'+`${city}`).style.display = '';
+    }
+
+
+    // var , let , const
+    var x = 1;
+    x = x + 2;
+    //var x = 55555;  => 재할당 가능 / 재선언 가능;
+
+    let y = 1
+    y = y + 2
+    // let y = 0;  => 재할당 가능 / 재선언 불가능;
+
+    const z = 1;
+    // z = z + 1;  => 재할당 불가능 / 재선언 불가능;
+
+
+    // 숫자, 소숫점 포함 숫자, 참 / 거짓, 문자, 날짜, object, 배열 ...
+    let a = 1;
+    a = 1.231;
+    a = "simjuhye";
+    a = true;
+    a = false;
+
+    a = []
+
+  </script>
+
+</body>
+
+
+</html>
