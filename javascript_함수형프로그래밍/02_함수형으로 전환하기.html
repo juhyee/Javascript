@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_함수형으로 전환하기</title>
+</head>
+<body>
+
+  <script>
+    var users = [
+      {id: 1, name: 'ID', age: 36},
+      {id: 2, name: 'BJ', age: 32},
+      {id: 3, name: 'JM', age: 32},
+      {id: 4, name: 'PJ', age: 27},
+      {id: 5, name: 'HA', age: 25},
+      {id: 6, name: 'JE', age: 26},
+      {id: 7, name: 'JI', age: 31},
+      {id: 8, name: 'MP', age: 23}
+    ]
+
+
+    // 나이가 30 이상인 user를 거른다
+    var temp_users = []
+    for(let i = 0; i < users.length; i++){
+      if(users[i].age >= 30) {
+        temp_users.push(users[i])
+      }
+    }
+    console.log(temp_users)
+
+
+    // 나이가 30세 이상인 user의 names를 수집한다.
+    var names = []
+    for(let i = 0; i < temp_users.length; i++){
+      names.push(temp_users[i].name)
+    }
+    console.log(names)
+
+
+    // 나이가 30세 미만 user의 names를 거른다.
+    var temp_users = []
+    for(let i = 0; i < users.length; i++){
+      if(users[i].age < 30) {
+        temp_users.push(users[i])
+      }
+    }
+    console.log(temp_users)
+
+
+    // 나이가 30세 미만인 user의 age를 수집한다.
+    var age = []
+    for(let i = 0; i < temp_users.length; i++){
+      age.push(temp_users[i].age)
+    }
+    console.log(age)
+
+
+
+    // 위 코드를 함수형으로 리팩토링
+    console.log('//////리팩토링 _filter//////')
+
+    function _filter(array, predi){
+      var newList = [];
+      for(let i = 0; i < array.length; i++){
+        if(predi(users[i])) {
+          newList.push(users[i])
+        }
+      }
+
+      return newList;
+    }
+    console.log(
+      _filter(users, function(user) {return user.age >= 30})
+    )
+    console.log(
+      _filter(users, function(user) {return user.age < 30})
+    )
+    console.log(
+      _filter([1, 2, 3, 4], function(num) {return num % 2})
+    )
+    console.log(
+      _filter([1, 2, 3, 4], function(num) {return !(num % 2)})
+    )
+
+
+    console.log('//////리팩토링 _map//////')
+    function _map(list, maper){
+      var newList = []
+      for(let i = 0; i < list.length; i++){
+        newList.push(maper(list[i]))
+      }
+      return newList
+    }
+  </script>
+</body>
+</html>
