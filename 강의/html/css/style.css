@@ -67,9 +67,12 @@ html, body {width: 100%; max-width: 1920px; min-width: 1200px; margin: 0 auto;}
 .info_txt dl {display:flex; margin-bottom:16px;}
 .info_txt dl dt {margin-right:16px; font-weight:900;}
 
-.footer_inner {display:flex; align-items: center; justify-content: flex-start; height:600px; padding: 100px; background-color:#0f0f0f;  color:#fff;}
+footer { background-color:#0f0f0f;}
+.footer_inner {overflow:hidden; width:1200px; margin: 0 auto; padding: 100px 0; font-size:22px; line-height:40px; color:#fff;}
 
-.code_wrap {font-size:26px; line-height:50px;}
+
+.footer_left {width:50%; float:left;}
+
 .code_let {color:#569cd6;}
 .code_name {color:#4cbaf6;}
 .code_bracket {color:#ffd600;}
@@ -78,3 +81,8 @@ html, body {width: 100%; max-width: 1920px; min-width: 1200px; margin: 0 auto;}
 .code_value--name:nth-child(1) {color:#ce9178;}
 .code_contant {display:block; margin-left:50px;}
 
+.footer_right {width:500px; position:absolute; right: 0; display:flex; align-items: center; height:240px; padding-left:50px; border-radius: 20px 0 0 20px; background-color:#fff;}
+.footer_info dl {display:flex; align-items: center; color:#333;}
+.footer_info dl dt {margin-right:30px; font-size:20px; font-weight:bold;}
+.footer_info dl dt i {margin-right:15px; width:20px; font-size:18px; vertical-align:center;}
+.footer_info dl dd a {font-size:16px; color:#333}
