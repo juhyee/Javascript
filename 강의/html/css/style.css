@@ -38,7 +38,7 @@
 .sec_skills .inner .skills_swiper02 {left: auto; right: 20px; top:250px;}
 
 
-.skills_item {display:flex; align-items: center; justify-content:space-between; width:100%; height:100%; padding: 0 90px 0 70px; box-sizing: border-box;}
+.skills_item {position:relative; display:flex; align-items: center; justify-content:space-between; width:100%; height:100%; padding: 0 90px 0 70px; background-color:#f7f7f7; box-sizing: border-box;}
 
 .skills_swiper01 .percent_area {position:relative; width: 150px; height:120px; justify-content: space-around ;}
 .skills_swiper01 .percent_area .circular-chart {display: block;margin: 10px auto;max-width: 80%;max-height: 250px;}
@@ -55,8 +55,11 @@
     stroke-dasharray: 0 100;
   }
 }
-
-.skills_text {width:calc(100% - 108px); word-break: keep-all; font-size:16px; line-height:22px;}
+.skills_swiper01 .skills_item::after {content: ''; position:absolute; right: 50px; bottom: 18px; width:100px; height: 141px; background-size:100%; opacity:0.1;}
+.skills_swiper01 .skills_item.html::after {background-image: url(../img/skills_html.jpg);}
+.skills_swiper01 .skills_item.css::after {background-image: url(../img/skills_css.jpg);}
+.skills_swiper01 .skills_item.js::after {background-image: url(../img/skills_js.jpg);}
+.skills_swiper01 .skills_item .text_area {width:calc(100% - 108px); word-break: keep-all; font-size:16px; line-height:22px;}
 
 
 .info_img {position:relative; width:200px;}
