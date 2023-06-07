@@ -42,9 +42,11 @@
     <main id="container">
 
         <section id="home" class="section sec_visual">
-          <div class="text_area">
-            <h3>안녕하세요! 웹퍼블리셔 OOO입니다.</h3>
-            <p>사용자 뿐만 아니라 다른 팀원들과의 협업, 서비스를 유지보수 하는데 불편함이 없도록 최선을 다해 노력하겠습니다.</p>
+          <div class="inner">
+            <div class="text_area">
+              <h3>안녕하세요! 웹퍼블리셔 OOO입니다.</h3>
+              <p>사용자 뿐만 아니라 다른 팀원들과의 협업, 서비스를 유지보수 하는데 불편함이 없도록 최선을 다해 노력하겠습니다.</p>
+            </div>
           </div>
         </section>
 
@@ -121,8 +123,8 @@
             <div class="swiper skills_swiper skills_swiper01">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="skills_info">
-                      <div class="percent">
+                    <div class="skills_item">
+                      <div class="percent_area">
                         <svg viewBox="0 0 36 36" class="circular-chart orange">
                           <path class="circle-bg" d="M18 2.0845
                                                     a 15.9155 15.9155 0 0 1 0 31.831
@@ -133,6 +135,7 @@
                                                     a 15.9155 15.9155 0 0 1 0 -31.831" />
                         </svg>
                         <span class="percentgauge">70%</span>
+                        <span class="percent_subject">HTML</span>
                       </div>
                       <div class="skills_text">
                         <p>
@@ -144,8 +147,8 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="skills_info">
-                    <div class="percent">
+                  <div class="skills_item">
+                    <div class="percent_area">
                       <svg viewBox="0 0 36 36" class="circular-chart green">
                         <path class="circle-bg" d="M18 2.0845
                                                   a 15.9155 15.9155 0 0 1 0 31.831
@@ -156,6 +159,7 @@
                                                   a 15.9155 15.9155 0 0 1 0 -31.831" />
                       </svg>
                       <span class="percentgauge">50%</span>
+                      <span class="percent_subject">CSS</span>
                     </div>
                     <div class="skills_text">
                       <p>
@@ -168,8 +172,8 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="skills_info">
-                    <div class="percent">
+                  <div class="skills_item">
+                    <div class="percent_area">
                       <svg viewBox="0 0 36 36" class="circular-chart">
                         <path class="circle-bg" d="M18 2.0845
                                                   a 15.9155 15.9155 0 0 1 0 31.831
@@ -180,6 +184,7 @@
                                                   a 15.9155 15.9155 0 0 1 0 -31.831" />
                       </svg>
                       <span class="percentgauge">100%</span>
+                      <span class="percent_subject">Javascript / jQuery</span>
                     </div>
                     <div class="skills_text">
                       <p>
@@ -195,22 +200,22 @@
             <div class="swiper skills_swiper skills_swiper02">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="skills_info">
+                    <div class="skills_item">
                       <div class="info_img">
                         <img src="https://www.cuk.edu/type/common/img/kor/info/coperPub_logo28.png" alt="">
                       </div>
                       <div class="info_txt">
                         <dl>
                           <dt>자격증명</dt>
-                          <dd>정보처리기능사</dd>
+                          <dd>웹디자인기능사</dd>
                         </dl>
                         <dl>
                           <dt>직업분야</dt>
-                          <dd>정보기술</dd>
+                          <dd>디자인</dd>
                         </dl>
                         <dl>
                           <dt>합격일자</dt>
-                          <dd>2017.07.05</dd>
+                          <dd>2018.09.14</dd>
                         </dl>
                         <dl>
                           <dt>발급기관</dt>
@@ -220,9 +225,9 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="skills_info">
+                  <div class="skills_item">
                     <div class="info_img">
-                      <img src="https://www.cuk.edu/type/common/img/kor/info/coperPub_logo28.png" alt="">
+                      <img src="https://yt3.googleusercontent.com/ytc/AGIKgqPPq3M8f9-pmBqO0OB367cNFCcifsTggfwwy7ZZ=s900-c-k-c0x00ffffff-no-rj" alt="">
                     </div>
                     <div class="info_txt">
                       <dl>
@@ -245,7 +250,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="skills_info">
+                  <div class="skills_item">
                     <div class="info_img">
                       <img src="https://www.cuk.edu/type/common/img/kor/info/coperPub_logo28.png" alt="">
                     </div>
@@ -273,7 +278,7 @@
             </div>
           </div>
         </section>
-      <!-- </div> -->
+
     </main>
     <!-- //container -->
 
@@ -325,6 +330,6 @@
   </div>
   <!-- 시맨틱 구조 템플릿-->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="main.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
