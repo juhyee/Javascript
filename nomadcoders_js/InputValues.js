@@ -1,5 +1,9 @@
 const loginForm = document.querySelector('#login-form')
 const loginInput = loginForm.querySelector('#login-form input')
+const greeting = document.querySelector('#greeting')
+
+const HIDDEN_CLASSNAME = 'hidden'
+const USRENAME_KEY = 'userName'
 
 // function onLoginBtnClick(){
     //     const userName = loginInput.value
@@ -18,21 +22,35 @@ const loginInput = loginForm.querySelector('#login-form input')
                 
                 
 ////////////////////////////////////////////////////////////////////////
-                
+function paintGreeting(userName){
+    greeting.classList.remove(HIDDEN_CLASSNAME)
+    greeting.innerText =  `Hello ${userName}`
+}
+
 function onLoginSubmit(e){
-    const userName = loginInput.value
-    console.log(userName)
     e.preventDefault();
-    // console.log(e)
+    loginForm.classList.add(HIDDEN_CLASSNAME)
+    const userName = loginInput.value;
+    localStorage.setItem("USRENAME_KEY", userName)
+    paintGreeting(userName)
 }
 
-loginForm.addEventListener('submit', onLoginSubmit)
+const saveUserName = localStorage.getItem("USRENAME_KEY");
 
-
-const link = document.querySelector('a')
-
-function handelLinkClick(){
-    alert('clicked!!!')
+if(saveUserName === null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME)
+    loginForm.addEventListener('submit', onLoginSubmit)
+}else{
+    paintGreeting(saveUserName)
 }
 
-link.addEventListener('click', handelLinkClick)
+// const link = document.querySelector('a')
+
+// function handelLinkClick(){
+//     alert('clicked!!!')
+// }
+
+// link.addEventListener('click', handelLinkClick)
+
+
+
