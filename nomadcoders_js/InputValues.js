@@ -24,7 +24,7 @@ const USRENAME_KEY = 'userName'
 ////////////////////////////////////////////////////////////////////////
 function paintGreeting(userName){
     greeting.classList.remove(HIDDEN_CLASSNAME)
-    greeting.innerText =  `Hello ${userName}`
+    greeting.innerText = `Hello ${userName}`
 }
 
 function onLoginSubmit(e){
