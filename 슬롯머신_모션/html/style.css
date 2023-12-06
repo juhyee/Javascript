@@ -1,0 +1,87 @@
+.slot { height: 805px;}
+.slotScreen {overflow: hidden; z-index: 2; flex-direction: row; position: absolute; top: 280px; left: 50%; width: 717px; height: 212px; border-radius: 30px; transform: translateX(-50%);}
+.slotScreen .screenItem {z-index: 2; position: relative; overflow: hidden; float: left; width: calc(100% / 4); height: 222px;}
+.slotScreen .screenItem .boxes {transition-duration: 2s; }
+.slotScreen .screenItem .box {display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;}
+.slotScreen .shodow {position: absolute; bottom: 0; left: 0;}
+.slotBg {position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+
+.slotButton {overflow: hidden; z-index: 2; position: absolute; top: 510px; left: 50%; width: 185px; height: 140px; margin-left: -92.5px; border-radius: 100px / 43px; transform: translateY(0);}
+.slotButton .button {display: inline-block; width: 185px; height: 140px; background: url(../images/button.png);}
+.slotButton .button.on {animation: btnMotion 0.3s forwards;}
+
+
+.slotHandle {position: absolute; right: 50%; top: 246px; z-index: 2; width: 78px; height: 200px; margin-right: -578px; background: url(./../images/handle.png) 0 0 no-repeat;}
+.slotHandle::after {content: ''; position: absolute; top: -30px; left: 43px; width: 54px; height: 54px; border-radius: 50%; background-color: #389f8c; }
+.slotHandle::before {content: ''; position: absolute; bottom: 37px; left: 63px; width: 15px; height: 143px; background-color: #fff;}
+.slotHandle.on::after {animation: handleMotion 1.6s forwards;}
+.slotHandle.on::before {animation: handleMotion02 1.6s forwards;}
+
+
+/* MO */
+.contents.promotionType .slot {height: 70.2667vw;}
+.contents.promotionType .slotScreen {top: 26.5455vw; left: 50%; width: 59.4320vw; height:17.1818vw; border-radius: 4.0000vw; transform: translateX(-50%);}
+.contents.promotionType .slotScreen .screenItem {width: calc(100% / 4); height: 17.1818vw;}
+
+.contents.promotionType .slotButton {top: 46.1333vw; left: 50%; width: 15.3333vw; height: 11.6000vw; margin-left: -7.6667vw; border-radius: 13.3333vw / 5.7333vw; transform: translateY(0);}
+.contents.promotionType .slotButton .button { width: 15.3333vw; height: 11.6000vw; background: url(../images/m_button.png) no-repeat 0 0/100% ;}
+.contents.promotionType .slotButton .button.on {animation: moBtnMotion 0.3s forwards;}
+
+.contents.promotionType .slotHandle { right: 50%; top: 23.4667vw;  width: 5.7333vw; height: 14.9333vw; margin-right: -46.9333vw; background: url(./../images/m_handle.png) no-repeat 0 0/100%;}
+.contents.promotionType .slotHandle::after {  top: 1.0667vw; left: 3.3333vw; width: 4.0000vw; height: 4.0000vw; border-radius: 50%;  }
+.contents.promotionType .slotHandle::before {  bottom: 5.2545vw; left: 4.6364vw; width: 1.0909vw; height: 5.0000vw; }
+.contents.promotionType .slotHandle.on::after {animation: MhandleMotion 1.6s forwards;}
+.contents.promotionType .slotHandle.on::before {animation: MhandleMotion02 1.6s forwards;}
+
+
+@keyframes btnMotion {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateY(15px);
+      background: url(../images/button_off.png);
+    }
+  }
+
+
+  @keyframes moBtnMotion {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2.7273vw);
+    }
+    100% {
+      transform: translateY(1.3636vw);
+      background: url(../images/m_button_off.png) no-repeat 0 0/100% ;
+    }
+  }
+
+
+  @keyframes handleMotion { 
+    0% { transform: translateY(0); }
+    50% { transform: translateY(100px) scale(1.3); }
+    100% {transform: translateY(0);}
+  }
+
+  @keyframes handleMotion02 { 
+    0% { height: 143px;}
+    50% { height: 90px;}
+    100% {height: 143px;}
+  }
+
+  @keyframes MhandleMotion { 
+    0% { transform: translateY(0); }
+    50% { transform: translateY(4.6667vw) scale(1.3); }
+    100% {transform: translateY(0);}
+  }
+
+  @keyframes MhandleMotion02 { 
+    0% { height: 5vw;}
+    50% { height: 3vw;}
+    100% {height: 5vw;}
+  }
