@@ -1,0 +1,110 @@
+.evtWrap {background-color: #f1ff9f;}
+.evtWrap .evtSec {position: relative; padding: 100px 200px;}
+.evtWrap .evtSec .ladderWrap {position: relative;}
+
+/* userWrap */
+.userWrap {display: flex; justify-content: space-between; width: calc(100% + 56px); height: 720px; margin: 0 0 0 -30px;}
+.userWrap .userItem {display: inline-block; width: 60px; height: 60px; margin-top: 30px; background-size: cover !important; cursor: pointer;}
+.userWrap .userItem.item01 {background: url(../../images/사자.png) center no-repeat;}
+.userWrap .userItem.item02 {background: url(../../images/토끼.png) center no-repeat;}
+.userWrap .userItem.item03 {background: url(../../images/원숭이.png) center no-repeat;}
+.userWrap .userItem.item04 {background: url(../../images/소.png) center no-repeat;}
+
+
+.userWrap .userLine .line {z-index: 3; position: absolute;}
+.userWrap .userLine .line.row {width: 0; height: 6px; transition: width 1s linear;}
+.userWrap .userLine .line.col {height: 0; width: 6px; transition: height 1s linear;}
+.userWrap .userLine .line.row.rotate {width: 0; transform: rotate(-10deg); transition: width 1s linear; transform-origin: left 0;}  
+.userWrap .userLine .line.row.rotateR {width: 0;transform: rotate(10deg); transform-origin: left 0;}
+.userWrap .userLine .line:last-child {width: 6px; height: 0; transition: height 1s linear;}
+/* userLine on */
+.userWrap .userLine.on .line.row {width: calc(800px / 4);} 
+.userWrap .userLine.on .line.col {height: calc(600px / 4);} 
+.userWrap .userLine.on .line.row.rotate {width: calc(818px / 4);} 
+.userWrap .userLine.on .line.row.rotateR {width: calc(818px / 4)}
+
+/* .user01 line */
+.user01 .userLine .line {background-color: red;}
+.user01 .userLine .line01 {top: 120px; left: 2px;}
+.user01 .userLine .line02 {top: 270px; left: 2px;}
+.user01 .userLine .line03 {top: 270px; left: 199px;}
+.user01 .userLine .line04 {top: 419px; left: 199px;}
+.user01 .userLine .line05 {top: 385px; left: 395px;}
+.user01 .userLine .line06 {top: 534px; right: 199px; transform-origin: right 0 !important;}
+.user01 .userLine .line07 {top: 570px; left: 199px;}
+/* user01 line on */
+.user01 .userLine.on .line07 {height: calc(590px / 4) !important}
+
+/* .user02 line */
+.user02 .userLine .line {background-color: green;}
+.user02 .userLine .line01 {top: 120px; left: 199px;}
+.user02 .userLine .line02 {top: 266px; left: 199px;}
+.user02 .userLine .line03 {top: 302px; left: 396px;}
+.user02 .userLine .line04 {top: 449px; left: 396px;}
+.user02 .userLine .line05 {top: 484px; left: 592px;}
+.user02 .userLine .line06 {top: 631px; right: 2px; transform-origin: right 0 !important;}
+.user02 .userLine .line07 {top: 596px; left: 396px;}
+/* user02 line on */
+.user02 .userLine.on .line07 {height: calc(480px / 4) !important;}
+
+/* .user03 line */
+.user03 .userLine .line {background-color: yellow;}
+.user03 .userLine .line01 {top: 120px; left: 395px;}
+.user03 .userLine .line02 {top: 265px; left: 396px;}
+.user03 .userLine .line03 {top: 302px; left: 592px;}
+.user03 .userLine .line04 {top: 449px; right: 2px; transform-origin: right 0 !important;}
+.user03 .userLine .line05 {top: 485px; left: 396px;}
+.user03 .userLine .line06 {top: 629px; left: 398px;}
+.user03 .userLine .line07 {top: 633px; left: 592px;}
+/* user03 line on */
+.user03 .userLine.on .line07 {height: calc(330px / 4) !important;}
+
+/* .user04 line */
+.user04 .userLine .line {background-color: orange;}
+.user04 .userLine .line01 {top: 120px; left: 592px;}
+.user04 .userLine .line02 {top: 266px; right: 2px; transform-origin: right 0 !important;}
+.user04 .userLine .line03 {top: 231px; left: 395px;}
+.user04 .userLine .line04 {top: 375px; right: 201px;}
+.user04 .userLine .line05 {top: 381px; left: 199px;}
+.user04 .userLine .line06 {top: 526px; right: 395px; transform-origin: right 0 !important;}
+.user04 .userLine .line07 {top: 491px; left: 2px;}
+/* user04 line on */
+.user04 .userLine.on .line07 {height: calc(880px / 4) !important;}
+
+
+/* ladderDefault */
+.ladderDefault {position: absolute; top: 120px; left: 0; display: flex; align-items: center; justify-content: space-between; width: 100%;}
+.ladderDefault .line {width: 10px; height: 600px; background-color: #774115; border-radius: 8px;}
+
+
+/* resultWrap */
+.resultWrap {display: flex; justify-content: space-between; width: calc(100% + 56px); margin: 0 0 0 -30px;}
+.resultWrap .resultItem {display: inline-block; width: 60px; height: 60px; margin-top: 30px; background: url(../../images/물음표.png) 0 0 no-repeat; background-size: cover !important; cursor: pointer; animation: bounce_shake 1.5s ease-out infinite;}
+
+
+/* popupWrap */
+.popupWrap {z-index: 1060;position: relative;display: none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;}
+.popupWrap.on {display: block;}
+.popupSec {z-index: 1061;overflow: hidden;position: fixed;top: 50%;left: 50%;width: 800px; height: 500px; border-radius: 35px; border: 9px solid rgb(121, 54, 0); background: #ffffff;box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);}
+.popupClose {position: absolute; top: 0; right: 0px; width: 60px; height: 60px;}
+.popupClose::after, .popupClose::before {content: ''; position: absolute;top: 50%; left: 50%; width: 2px; height: 30px; background-color: #5c5c5c;transform: translate(-50%, -50%) rotate(-45deg);}
+.popupClose::before {transform:translate(-50%, -50%) rotate(45deg);}
+.filter {position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.3);}
+
+
+
+
+
+@keyframes bounce_shake{
+  0% { transform: scale(1,1) translateY(0); }
+  10%  { transform: scale(1.1,.9) translateY(0); }
+  30%  { transform: scale(.9,1.1) translateY(-5px); }
+  32% { transform: scale(1.2) translateY(-5px); }
+  35%, 40% { transform: scale(1.2) translateY(-5px) rotate(-20deg)}
+  45%, 50% { transform: scale(1.2) translateY(-5px) rotate(20deg)}
+  60%  { transform: scale(1.05,.95) translateY(0); }
+  70%  { transform: scale(1.05,.95) translateY(0); }
+  80%  { transform: scale(1,1) translateY(-3px); }
+  95%  { transform: scale(1,1) translateY(0); }
+  100% { transform: scale(1,1) translateY(0); }
+}
