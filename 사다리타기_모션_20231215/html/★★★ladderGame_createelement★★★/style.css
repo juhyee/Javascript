@@ -1,3 +1,6 @@
+.wrap {width: 1000px;}
+.contents.promotionType .wrap {width: auto;}
+
 .evtWrap {background-color: #f1ff9f;}
 .evtWrap .evtSec {position: relative; padding: 100px 200px;}
 .evtWrap .evtSec .ladderWrap {position: relative;}
