@@ -5,16 +5,18 @@ const popupCloseBtn = document.querySelector('.popupClose')
 const lineCount = 7 // 가로/세로 라인 수
 let endDelay = (delay * lineCount * 1000) + 1000 
 
-
-char.forEach((item, _) => {
+char.forEach((item, idx) => {
     item.children[0].addEventListener('click', function (e) {
         e.preventDefault();
-        // 클릭 영역 제외 한 영역 dim 처리
+
+        // 자신 제외의 영역 dim 처리
+        // let charSiblings = Array.from(char[idx].parentNode.children)
+        // charSiblings.forEach(function(element) {
+        //     if (element !== char[idx]) {
+        //         element.classList.add('dim');
+        //       }
+        // });
         
-
-        // 클릭 영역만 dim 처리
-        // item.classList.add('dim')
-
         // 모든 영역 dim 처리
         char.forEach((item) => item.classList.add("dim"));
 
@@ -30,7 +32,7 @@ char.forEach((item, _) => {
 
         setTimeout(() => {item.children[1].classList.add('on')}, 0)
         setTimeout(popupE, endDelay)
-    })
+    }, {once: true})
 })
 
 
@@ -38,7 +40,8 @@ function popupE(){
     if (!popup.classList.contains('on')) {
         popup.classList.add('on')
     }
-    popupCloseBtn.addEventListener('click', function () {
+    popupCloseBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         popup.classList.remove('on')
     })
 }
